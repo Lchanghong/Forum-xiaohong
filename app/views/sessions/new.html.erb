@@ -1,0 +1,62 @@
+<!-- <h1>登录</h1>
+
+<% if flash[:notice] %>
+  <p style='color:red'><%= flash[:notice] %></p>
+<% end %>
+ 
+<%= form_for :session, url: :sessions_create do |f| %>
+ 
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
+ 
+  <p><%= image_submit_tag("login.jpg")%></p>
+
+<% end %> -->
+
+
+
+<div class="container">
+
+
+<div class="form-signin" >
+  <h2 class="form-signin-heading">
+      登录论坛
+  </h2>
+  <%= form_for :session, url: :sessions_create do |f| %>
+  账号:<%= f.text_field :name ,:class=>"input-block-level",:placeholder=>"请输入账号" %>
+  密码: <%= f.password_field :password , :class=>"input-block-level" ,:placeholder=>"请输入密码"%>
+   <div class="button">
+   <button class="btn btn-large btn-primary" type="submit">
+    点击登录</button>
+  </div>
+   <% end %>
+   <%= link_to '注册账号',new_applicant_path ,:class=>"login_right" %>
+</div>
+
+</div> 
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://getbootstrap.com/assets/js/jquery.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-transition.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-alert.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-modal.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-dropdown.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-scrollspy.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-tab.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-tooltip.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-popover.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-button.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-collapse.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-carousel.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-typeahead.js"></script>
+
+
+ 

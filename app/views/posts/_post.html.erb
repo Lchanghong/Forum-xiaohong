@@ -1,0 +1,15 @@
+
+ <% @posts.each do |post| %>
+
+  <tr>
+      <div><font class='post-title'><%= post.title %></font></div>
+      <br>
+      <div><%= post.text %></div>
+      <td><%= link_to '详情', post_path(post) %></td>
+    <td><%= link_to '更新', edit_post_path(post) %></td>
+     <td><%= link_to '删除', post_path(post),:confirm =>'确定删除此贴?' , :method => :delete %>
+     </td>
+  </tr>
+  
+  <hr/>
+  <% end %>

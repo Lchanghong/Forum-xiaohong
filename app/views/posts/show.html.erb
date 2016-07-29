@@ -1,0 +1,17 @@
+<p>
+  <strong style= "color:blue">标题:</strong>
+  <%= @post.title %>
+</p>
+ 
+<p>
+  <strong style= "color:blue">内容:</strong>
+  <%= @post.text %>
+</p>
+<h4>评论详情</h4>
+  <%= render @post.comments %>
+
+<h5>添加评论</h5>
+	<%= render "comments/form" %>
+
+<%= link_to '返回论坛', posts_path %>
+| <%= link_to '更新', edit_post_path(@post) %>

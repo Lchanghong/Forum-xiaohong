@@ -1,0 +1,75 @@
+<!-- <h1>注册</h1>
+<% if @user.errors.any? %>
+<ul>
+	<% @user.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
+	<% end %>
+</ul>
+<% end %>
+
+<%= form_for @user,url: :applicants_create do |f| %>
+<p>
+	  <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
+ 
+  <p>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+ 
+  <p><%= image_submit_tag("zhuce.jpg")%></p>
+  
+<% end %>
+ -->
+
+
+ <div class="container">
+<div class="form-signin" >
+
+  <h2 class="form-signin-heading">
+      注册用户
+  </h2>
+  <% if @user.errors.any? %>
+<ul>
+  <% @user.errors.full_messages.each do |msg| %>
+  <li><%= msg%></li>
+  <% end %>
+</ul>
+<% end %>
+  <%= form_for @user,url: :applicants_create do |f| %>
+  注册账号:
+  <%= f.text_field :name ,:class=>"input-block-level",:placeholder=>"" %>
+  注册密码:
+  <%= f.password_field :password , :class=>"input-block-level" ,:placeholder=>"请输入注册密码"%>
+  确认密码:
+  <%= f.password_field :password_confirmation,:class=>"input-block-level" ,:placeholder=>"请再次确认密码" %>
+  <div class= "button">
+   <button class="btn btn-large btn-primary" type="submit">点击注册</button>
+ </div>
+   <% end %>
+
+</div>
+
+</div> 
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://getbootstrap.com/assets/js/jquery.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-transition.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-alert.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-modal.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-dropdown.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-scrollspy.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-tab.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-tooltip.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-popover.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-button.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-collapse.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-carousel.js"></script>
+<script src="http://getbootstrap.com/assets/js/bootstrap-typeahead.js"></script>
