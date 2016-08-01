@@ -1,7 +1,55 @@
 
 
 
- <h4>一张图代表论坛</h4>
- <br>
- <%= image_tag "cainiao.jpg" %>
+ <div class = "index">技术头条</div>
+
+<p><h4 class='head'>Rails的 Ajax 向导(非常好)</h4></p>
+<p><p>
+	前不久入手了《Web开发敏捷之道》的中文第4版，翻看了 Ajax 部分，发现竟然还是使用 .rjs 模板。.rjs 模板在 3.1 版以后已经被移除。另外我又去看了官方的 Rails guide，发现也没有讲述 Ajax 的章节。
+</p>
+<p>
+也就是说一个新手入门，很可能搞不清楚 Rails 对 Ajax 是如何支持的。所以我想在这写写 Rails 3.2 的 Ajax 向导，让不了解 Ajax 的新手了解 Rails 3.2 的 Ajax 处理，或者了解 Ajax 不了解 Rails 的人知道 Rails 对其提供了什么支持。
+</p>
+<p>
+Ajax 是什么？
+虽然 Ajax 已经遍地都是，不过还是介绍下 Ajax。简单的说，Ajax 是提供一种浏览器和服务端的异步交互方式，实现无刷新页面的情况下更新页面。
+</p>
+<p>
+最原始的网页浏览方式是通过超链接，每点击一个超链接，浏览器会从服务端下载完整的网页并更新用户看到的内容，这样用户会看到短暂的白页或者闪烁。但是通过 Ajax 处理，浏览器可以只从服务端下载需要更新的页面片段，然后在不重载页面的情况下更新当前网页的某个部分，实现内容更新。
+
+不过 Ajax 已经不局限于页面局部了，小至 CodeCampo 的提交评论，大至 Twitter，Gmail 的整页 Ajax，都属于 Ajax 范围。Ajax 给用户更好的操作体验，并且节省流量。
+
+明白 Ajax 的目的之后，就可以开始考虑如何在 Rails 里面实现 Ajax。
+</p>
+<p>
+Rails Ajax 的两种类型
+Ajax 的实现不拘一格，Rails 所处的服务端即既可以处于控制者的角色，完全处理数据和更新逻辑，又可以仅仅处理数据，由浏览器端的 JavaScript 决定更新逻辑。
+</p>
+<p>
+	<p>
+于是在 Rails 里面处理 Ajax 大致可以分为两种：
+</p>
+用服务端模板(.js.erb)提供的服务端的 Ajax
+服务端只提供 json api 的客户端的 Ajax
+这两种 Ajax 实现，实际上都是由客户端发起的 Ajax 请求（通常由 JavaScript 控制），然后由服务端返回数据。而不同的是，服务端既可以只返回一段 json 的纯数据，也可以将更新所需的 JavaScript 逻辑一起打包返回，浏览器在接收到这段数据+逻辑之后，完全按照这段逻辑进行更新操作，看起来就是完全由服务器控制一样。数据+逻辑这种打包方式我就暂称为服务端 Ajax。
+
+需要选择哪种方式的 Ajax，取决于你的网站的定位。如果网址是传统的浏览方式为主，只是需要在局部加上 Ajax 效果，比如 CodeCampo 的评论回复，那么用服务端的 Ajax 是最方便的。如果你想做一个类似 Twitter 的全 Ajax 站点，那么 json api 形式的 Ajax 更适合，你还可以看看 spine.js 这个前端 mvc 框架。
+</p>
+</p>
+<p>
+总结
+<ul>
+总的来说，对于 Rails 你需要了解几点：
+
+<li>respond_to api <a>http://apidock.com/rails/ActionController/MimeResponds/respond_to
+</a></li>
+<li>
+对于服务端 Ajax，了解 js.erb
+</li>
+<li>
+对于客户端 Ajax，了解 Javascipt 的 Ajax 处理，比如 <a>http://api.jquery.com/jQuery.ajax/</a>
+</li>
+</ul>
+</p>
+ 
 
