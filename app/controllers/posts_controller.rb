@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 		#render :inline=>"<h2>测试内嵌套view模块1</h2><%= @post.title %>"
 	end
 	def index
+		$visitor +=1
 		@posts = Post.all 
 		#render :action =>"自定义view模块"
 		#render :action=>"test" 
