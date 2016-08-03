@@ -7,10 +7,17 @@ class PostsController < ApplicationController
 	def create
 		@post = Post.new(post_params)
 		@post.user_id = session[:user_id]
+		respond_to do |format|
 	   if @post.save
-		 redirect_to @post
-	   else
-		 render 'new'
+	   	format.html { redirect_to @post }
+	   	format.js { render :layout=>false }
+	   	format.json { render :json=>@post }
+       else
+       	format.html { render :new }
+		format.js { render :layout => false, :status => 406  }
+		format.json { render :json => {:errors => @post.errors.full_messages.join(',')} }
+		
+        end
 	    end
 	end
 
@@ -25,7 +32,7 @@ class PostsController < ApplicationController
 		@posts = Post.all 
 		#render :action =>"自定义view模块"
 		#render :action=>"test" 
-		#layout false 不适用自动布局,true 使用自动布局,默认是使用的
+		#layout false 不使用自动布局,true 使用自动布局,默认是使用的
 		#render :action=>"test" #, :layout=>false 
 		#_viewname局部view模块
 

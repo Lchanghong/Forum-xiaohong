@@ -1,7 +1,25 @@
 
 
 
- <div class = "index">技术头条</div>
+ <div class = "index">技术点滴</div>
+ <p><h4 class='head'>ajax初体验</h4></p>
+
+
+ <p><h4 class='head'>非侵入式 JavaScript</h4></p>
+ <p>
+ <code>< href="#" onclick="this.style.backgroundColor='#990000'">Paint it red</code>
+</p>
+<p>效果:<a href="#" onclick="paintIt(this,'#990000')">Paint it red</a></p>
+<p>另外一种写法,在CoffeeScript写入</p>
+<textarea>
+<code>paintIt = (element, backgroundColor, textColor) ->
+  element.style.backgroundColor = backgroundColor
+  if textColor?
+    element.style.color = textColor
+</code>
+</textarea>
+<p>上面缩短为:<code> onclick="paintIt(this,'#990000')"</code>
+	</p>
 
 <p><h4 class='head'>Rails的 Ajax 向导(非常好)</h4></p>
 <p><p>
