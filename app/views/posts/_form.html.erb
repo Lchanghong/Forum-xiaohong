@@ -1,4 +1,6 @@
-<%= form_for @post , :remote=> true do |f| %>
+
+
+<%= form_for @post  do |f| %>
   <% if @post.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@post.errors.count, "error") %> prohibited
@@ -18,12 +20,11 @@
   <p>
     
     内容<br/>
-    <%= f.text_area :text %>
+    <%= f.text_area :text ,:rows=>"5"%>
   </p>
  
   <p>
-    <%= f.submit ("发帖") ,:id=>'new_reply_form' %>
+    <%= f.submit ("发帖"), data:{:"disable-with"=>"请稍等..."} ,:class=> "btn btn-info" %>
   </p>
 <% end %>
-<div id="replies table > tbody">
-  </div>
+  

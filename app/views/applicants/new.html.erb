@@ -50,7 +50,7 @@
   确认密码:
   <%= f.password_field :password_confirmation,:class=>"input-block-level" ,:placeholder=>"请再次确认密码" %>
   <div class= "button">
-   <button class="btn btn-large btn-primary" type="submit">点击注册</button>
+   <%= f.submit ("注册账户"), data:{:"disable-with"=>"申请中,请稍后..."} ,:class=> "btn btn-large btn-info btn-block" %>
  </div>
    <% end %>
 

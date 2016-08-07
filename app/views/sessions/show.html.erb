@@ -1,23 +1,22 @@
-<p><table>
- <strong>用户名:</strong>
- <br/>
- <span><%= @user.name %></span>
- </table>
+<p>
+ <h3>用户名:</h3>
+ 
+ <h2 ><%= @user.name %></h2>
+ 
 </p>
 
 <p>
-  <strong>我的帖子:</strong>
+  <h3>我的帖子:</h3>
   <% @user.posts.each do |post| %>
  <tr>
-      <div><font class='post-title'><%= post.title %></font></div>
-      <br>
+      <h4><%= post.title %></h4>
       <div><%= post.text %></div>
       <hr>
       <% end %>
 
-</p>
+</p><br>
 <p>
-  <strong>我的评论:</strong>
+  <h4>我的评论:</h4>
   <% @user.comments.each do |comment| %>
   <tr>
       <div><font class='post-title'><%= comment.content %></font></div>

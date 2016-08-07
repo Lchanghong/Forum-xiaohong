@@ -6,6 +6,7 @@ skip_before_action :check_login
   end
 
   def create
+    sleep 3  #模拟网络延时3秒
   	@user = User.create(user_params)
   	if@user.save
       #调到登录界面

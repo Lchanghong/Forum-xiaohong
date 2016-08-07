@@ -1,14 +1,53 @@
-<h3 style= "color:blue">帖子列表</h3>
+<h3 style= "color:blue">帖子列表</h3><br>
 
-<h1><%=notice %></h1>
+<h4 style= "color:red"><%=notice %></h4>
+
+<p>
+  <!--提交表单-->
+<%= form_for @post, html:{ id: 'post-form' } do |f| %>
+  <% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@post.errors.count, "error") %> prohibited
+      this article from being saved:</h2>
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    标题<br/>    
+    <%= f.text_field :title %>
+  </p>
  
- <%= render 'post'%>
-   <br><br><br>
-<!-- 
- <%= link_to '发帖', new_post_path ,:class=>"fa_post" %>  -->
+  <p>
+    
+    内容<br/>
+    <%= f.text_area :text ,rows:"5"%>
+  </p>
  
- <input type=button value="发帖" onclick="window.location.href='http://localhost:3000/posts/new'">
+  <p>
+    <%= link_to "发帖", 'javascript:;', class: "btn btn-info", id: 'post-submit' %>
+  </p>
+<% end %>
+  
+</p> 
+ <!--显示内容-->
+ <tdoby id="posts_list">
+ 	<%= render @posts %>
+</tdoby>
+
+  
+<script type="text/javascript">
+  jQuery(function($) {
+    $('#post-submit').click(function() {
+      $.post("/posts", $("#post-form").serialize())
+        .success(function(result) {
+          $('#posts_list').prepend(result);
+        });
+    });
 
 
-
-<script src='./javascripts/post.js'></script>
+  });
+</script>

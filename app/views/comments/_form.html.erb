@@ -1,10 +1,10 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
   <p>
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
+    发表评论:<br>
+    <%= f.text_area :content, :rows=>"3"%>
   </p>
   
   <p>
-    <%= f.submit ('发表评论')%>
+    <%= f.submit ('评论'), data:{:"disable-with"=>"请稍等..."}%>
   </p>
 <% end %>

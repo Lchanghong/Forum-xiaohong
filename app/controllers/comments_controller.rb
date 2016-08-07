@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 	def create
+    sleep 3  #模拟网络延时3秒
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
     @comment.user_id = session[:user_id]

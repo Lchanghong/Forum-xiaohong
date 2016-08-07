@@ -19,7 +19,8 @@
         <div class="login">
         <h4>
         <% if session[:user_id]%>
-         <%= link_to '退出账号', session_path(session),
+        
+         <%= link_to '安全退出', session_path(session),
                     method: :delete, data: { confirm: '确定退出当前账号?' } %>
           <% else %>
            <%= link_to '登录', new_session_path ,:class=>"login_layout" %>
@@ -53,7 +54,7 @@
           <h2 class="star"><span>web</span> 资源站</h2><div class="clr"></div>
           <ul class="sb_menu">
             <li><a href="http://www.runoob.com/">web基础</a></li>
-            <li><a href="http://www.maiziedu.com/course/list/all-ruby/0-1/">ruby视频教程</a></li>
+            
             <li><a href="http://api.rubyonrails.org/">ruby on rails api文档</a></li>
             <li><a href="http://guides.ruby-china.org/getting_started.html#%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0">rails入门指南</a></li>
             <li><a href="https://ruby-china.org/topics?page=2">ruby中文社区</a></li>
