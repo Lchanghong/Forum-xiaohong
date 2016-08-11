@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
   
   resources :posts do
-    get :apost, on: :member
+    # get :apost, on: :member
     resources :comments
   end
 

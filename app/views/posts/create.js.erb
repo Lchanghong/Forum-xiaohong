@@ -1,2 +1,6 @@
-$('.posts_list').prepend('<%= j render(@post) %>');
-$('.from_post')[0].reset();
+// $('.posts_list').prepend('<%= j render(@post) %>');
+ // alert("走过");
+// $("<%= j(render @post) %>").appendTo("#posts_list");
+// $('.from_post')[0].reset();
+$('#posts-list').prepend('<%= j render(@post) %>');
+$('#post-form')[0].reset();
