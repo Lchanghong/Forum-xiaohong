@@ -1,5 +1,6 @@
 
-  <p id="post<%= post.id %>">
+  <div id="post<%= post.id %>">
+    <p>
       <h4 ><%= post.title %></h4>
       
       <div><%= post.text %></div>
@@ -7,7 +8,8 @@
       <td><%= link_to '详情',post_path(post) ,class: "btn btn-info" ,id: 'show-comment'%></td>
     <td><%= link_to '更新', edit_post_path(post),class: "btn btn-warning" %></td>
 
-     <td><%= link_to '删除', post, 
+     <td><%= link_to '删除',
+                     post, 
                      remote: true,
                      method: :delete,
                      data: { confirm: "点击确定继续" }, 
@@ -15,7 +17,9 @@
                      id: "delete-apost" %>
      </td>
       <hr/>
-  </p>
+    </p>
+  </div>
 
 
 
+  

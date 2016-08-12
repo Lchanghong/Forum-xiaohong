@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :set_post ,only: [:create, :destroy]
+
 	def create
       sleep 1  #模拟网络延时1秒
     
@@ -7,7 +9,8 @@ class CommentsController < ApplicationController
       
       respond_to do |format|
           @comment.save
-          format.html { render :acomment, status: :created , location: @post, layout: false }
+          # format.html { render :acomment, status: :created , location: @post, layout: false }
+          format.js
       end
       # redirect_to post_path(@post)
   end
@@ -15,7 +18,11 @@ class CommentsController < ApplicationController
   def destroy
   	  @comment = @post.comments.find(params[:id])
   	  @comment.destroy
-  	  redirect_to post_path(@post)
+      respond_to do |format|
+
+        format.js
+      end
+  	  # redirect_to post_path(@post)
   end
  
   private
