@@ -1,17 +1,21 @@
 <p>
 	
-  <strong style= "color:blue">标题:</strong>
-  <%= @post.title %>
+  
+  <h4><%= @post.title %></h4>
 </p>
  
 <p>
-  <strong style= "color:blue">内容:</strong>
+  
   <%= @post.text %>
 </p>
 <h4>评论详情:</h4>
+<div id ="comments-list">
   <%= render @post.comments %>
+</div>
 <p>
 	<%= render "comments/form" %>
 </p>
 <%= link_to '返回论坛', posts_path %>
 | <%= link_to '更新', edit_post_path(@post) %>
+
+
