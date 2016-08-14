@@ -44,7 +44,7 @@
 <% end %>
   <%= form_for @user,url: :applicants_create do |f| %>
   注册账号:
-  <%= f.text_field :name ,:class=>"input-block-level",:placeholder=>"" %>
+  <%= f.text_field :name ,:class=>"input-block-level",:placeholder=>"首字母以中英文开头" %>
   注册密码:
   <%= f.password_field :password , :class=>"input-block-level" ,:placeholder=>"请输入注册密码"%>
   确认密码:

@@ -12,13 +12,13 @@ class PostsController < ApplicationController
 		@post.user_id = session[:user_id]
 		respond_to do |format|
 	   		if @post.save
-	   	 		# format.html { render :apost, status: :created , location: @post, layout: false }
-	   	 		# format.js
+	   	 		format.html { render :apost, status: :created , location: @post, layout: false }
+	   	 		format.js
 			else
          		
-    	        #format.html { render :new }
+    	        format.html { render :new }
 				
-				# format.json{ render json: @user.errors, status: :unprocessable_entity }
+				format.json{ render json: @user.errors, status: :unprocessable_entity }
 	        end
 	        format.js
 	    end

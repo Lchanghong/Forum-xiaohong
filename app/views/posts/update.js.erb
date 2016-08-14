@@ -1,3 +1,7 @@
+// $('#posts-list').prepend('<%= j render(@post) %>');
+// alert('测试!');
+// $('#post-form')[0].reset();
+
 $('#posts-list').prepend('<%= j render(@post) %>');
-alert('测试!');
-$('#post-form')[0].reset();
+   $('#editPostFormModal').modal('hide');
+   $('#editPostForm')[0].reset();

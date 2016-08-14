@@ -1,6 +1,29 @@
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            nil,
+            :class => 'btn btn-primary',
+            data: {toggle: "modal", target: "#newProductFormModal"} %>
 
-
-
+<%= content_for :page_modal do %>
+  <div class="modal fade" id="newProductFormModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+     
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">添加一个商品</h4>
+          </div>
+          <div class="modal-body" id="newProductInput">
+           fvjbjkdnbkvdfnbkdbnk
+          </div>
+          <div class="modal-footer">
+            <%= link_to t('.cancel', :default => t("helpers.links.cancel")), '#', :class => 'btn btn-default', data: {dismiss: "modal"} %>
+           
+          </div>
+        </div>
+   
+    </div>
+  </div>
+   <% end %>
  <div class = "index">技术点滴</div>
  <p><h4 class='head'>ajax初体验</h4></p>
 

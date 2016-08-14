@@ -4,7 +4,8 @@
   <title>菜鸟论坛</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+
+ <%= csrf_meta_tags %>
 </head>
 <body>
 	<!-- 顶部栏-->
@@ -21,9 +22,9 @@
         <%- if session[:user_id] -%>
         <%@user = User.find_by(id: session[:user_id]) %>
         <span>欢迎回来~</span>
-       (<span class= 'user-name'>
+       <span class= 'user-name'>
           <%= @user.name %>
-        </span>)
+        </span>
         <span id = 'sign'>
          <%= link_to '退出', session_path(session),
                     method: :delete, data: { confirm: '确定退出当前账号?' } ,id:'sign'%>
@@ -99,6 +100,8 @@
     </div>
   </div>
 </div>
+<%= yield(:page_modal) if content_for?(:page_modal) %>
+<%= yield(:page_javascript) if content_for?(:page_javascript) %>
 </body>
 </html>
 

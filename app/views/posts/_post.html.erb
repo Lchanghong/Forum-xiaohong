@@ -6,7 +6,7 @@
       <div><%= post.text %></div>
       
       <td><%= link_to '评论详情',post_path(post) ,class: "btn btn-info" ,id: 'show-comments'%></td>
-    <td><%= link_to '更新', edit_post_path(post),class: "btn btn-warning" ,id:'update' %></td>
+    <td><%= link_to '更新', edit_post_path(post),class: "btn btn-warning" ,id:'update' , remote: true,data: {toggle: "modal", target: "#editPostFormModal"}%></td>
 
      <td><%= link_to '删除',
                      post, 

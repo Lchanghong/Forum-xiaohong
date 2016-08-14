@@ -1,30 +1,14 @@
 
 
-<%= form_for(@post, remote: true,html: { id: "post-form" }) do |f| %>
-  <% if @post.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@post.errors.count, "error") %> prohibited
-      this article from being saved:</h2>
-    <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
-  <p>
-    标题<br/>    
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
+<%= form_for(@post, html: { id: "post-form" }) do |f| %>
+
+   <%= render "errors" %>
+   
     
-    内容<br/>
-    <%= f.text_area :text ,:rows=>"5"%>
-  </p>
+   <%= render partial: "input", locals: { f: f } %>
+   <div>
+   <%= f.submit ("发帖"), data:{:"disable-with"=>"请稍等..."} ,:class=> "btn btn-info" %>
+   </div>
  
-  <p>
-    <%= f.submit ("发帖"), data:{:"disable-with"=>"请稍等..."} ,:class=> "btn btn-info" %>
-  </p>
 <% end %>
   
