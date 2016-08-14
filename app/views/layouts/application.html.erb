@@ -17,16 +17,22 @@
       <div class="menu_nav">
       	<!-- 登录模块-->
         <div class="login">
-        <h4>
-        <% if session[:user_id]%>
-        
-         <%= link_to '安全退出', session_path(session),
-                    method: :delete, data: { confirm: '确定退出当前账号?' } %>
+        <div id = 'layoulogin'>
+        <%- if session[:user_id] -%>
+        <%@user = User.find_by(id: session[:user_id]) %>
+        <span>欢迎回来~</span>
+       (<span class= 'user-name'>
+          <%= @user.name %>
+        </span>)
+        <span id = 'sign'>
+         <%= link_to '退出', session_path(session),
+                    method: :delete, data: { confirm: '确定退出当前账号?' } ,id:'sign'%>
           <% else %>
-           <%= link_to '登录', new_session_path ,:class=>"login_layout" %>
+           <%= link_to '登录', new_session_path ,id:'sign'%>
+         
           <% end %>
-      </h4>
-       
+          
+       </div>
         </div>
         <ul>
           <li ><%= link_to '首页', controller: 'welcome'%></li>

@@ -1,14 +1,15 @@
 <div id="comment<%= comment.id %>">
   <p>
-    <strong>评论内容:</strong>
-    <%= comment.content %>
-  </p>
-    <p>
+    
+   <%= comment.content %>
+ 
+   <br/>
   	<%= link_to '删除评论', 
   	[comment.post, comment],
   	remote: true ,
   	method: :delete, 
   	data: {confirm: "确定删除此评论?"} %>
-  </p> 
+  
   <hr>
+   </p>
 </div>

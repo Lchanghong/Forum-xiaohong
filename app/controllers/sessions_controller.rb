@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     sleep 3  #模拟网络延时3秒
   	user = User.find_by(name: user_params[:name]).try(:authenticate, user_params[:password])
   	if user
-      flash[:notice] = "我在传值"
+      # flash[:notice] = "我在传值"
       session[:user_id] = user.id
       
   		 redirect_to :posts

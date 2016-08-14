@@ -77,12 +77,21 @@ ul.ex_menu li a:hover { text-decoration:none;}
 
 
 /* search */
-.login { float:right;
-       
+.login { 
+	float:right;
+    
 }
-
-.login_layout { 
+#layoulogin{
+	margin-top: 8px;
+}
+#sign{
+	font-size: 20px;
 	text-decoration: none ;
-    text-align:center;
-	
+   
+}
+.user-name{
+	font-size: 16px;
+	color: rgb(222,111,33);
+	margin-left: 2px;
+	margin-right: 2px;
 }

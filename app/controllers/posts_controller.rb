@@ -44,14 +44,18 @@ class PostsController < ApplicationController
 	   respond_to do |format|
          format.html
          format.json { render json: @post, status: :ok, location: @post }
+         
        end
 	end
 
 	def update
 
 	  respond_to do |format|
+	  	@post.update(post_params)
+	  	
         format.html
         format.json { render json: @post, status: :ok, location: @post }
+        format.js
       end
 		
     end
