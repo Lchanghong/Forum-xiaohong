@@ -1,7 +1,7 @@
-// $('#posts-list').prepend('<%= j render(@post) %>');
-// alert('测试!');
-// $('#post-form')[0].reset();
 
-$('#posts-list').prepend('<%= j render(@post) %>');
-   $('#editPostFormModal').modal('hide');
-   $('#editPostForm')[0].reset();
+ // alert('测试!');
+
+$('#post<%= @post.id %> h4').html('<%= @post.title %>');
+$('#post<%= @post.id %> #post-content').html('<%= @post.text %>');
+$('#editPostFormModal').modal('hide');
+$('#newPostForm')[0].reset(); 

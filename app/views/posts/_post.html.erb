@@ -1,12 +1,13 @@
 
   <div id="post<%= post.id %>">
     <p>
-      <h4 ><%= post.title %></h4>
+      <h4 id= 'post-header'><%= post.title %></h4>
       
-      <div><%= post.text %></div>
+      <div id='post-content'><%= post.text %></div>
       
       <td><%= link_to '评论详情',post_path(post) ,class: "btn btn-info" ,id: 'show-comments'%></td>
-    <td><%= link_to '更新', edit_post_path(post),class: "btn btn-warning" ,id:'update' , remote: true,data: {toggle: "modal", target: "#editPostFormModal"}%></td>
+    <td><%= link_to '更新', edit_post_path(post),class: "btn btn-warning update" ,remote: true, 
+      'data-title' => post.title , 'data-text' => post.text, 'data-id' => post.id %></td>
 
      <td><%= link_to '删除',
                      post, 
@@ -21,16 +22,4 @@
   </div>
 
 
- <script type="text/javascript">
-  jQuery(function($) {
-    $('#show-comments').click(function() {
-      $.get("/posts/post.id", $("#post-form").serialize())
-        .success(function(result) {
-          $('#posts_list').prepend(result);
-        });
-    });
-
-
-  });
-</script> 
-  
+ 

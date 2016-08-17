@@ -42,9 +42,9 @@ class PostsController < ApplicationController
 	end
 	def edit
 	   respond_to do |format|
-         format.html
-         format.json { render json: @post, status: :ok, location: @post }
-         
+         # format.html
+         # format.json { render json: @post, status: :ok, location: @post }
+         format.js 
        end
 	end
 
@@ -53,9 +53,10 @@ class PostsController < ApplicationController
 	  respond_to do |format|
 	  	@post.update(post_params)
 	  	
-        format.html
-        format.json { render json: @post, status: :ok, location: @post }
+        # format.html
+        # format.json { render json: @post, status: :ok, location: @post }
         format.js
+     
       end
 		
     end
