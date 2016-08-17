@@ -6,8 +6,15 @@
       <div id='post-content'><%= post.text %></div>
       
       <td><%= link_to '评论详情',post_path(post) ,class: "btn btn-info" ,id: 'show-comments'%></td>
-    <td><%= link_to '更新', edit_post_path(post),class: "btn btn-warning update" ,remote: true, 
-      'data-title' => post.title , 'data-text' => post.text, 'data-id' => post.id %></td>
+    <td><%= link_to '更新', 
+                    edit_post_path(post),
+                    remote: true, 
+                    class: "btn btn-warning update" ,
+                    'data-title' => post.title ,
+                    'data-text' => post.text, 
+                    'data-id' => post.id
+                     %>
+     </td>
 
      <td><%= link_to '删除',
                      post, 
