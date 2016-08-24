@@ -1,14 +1,15 @@
 <% if @post.errors.any? %>
-  <div id="error_expl" class="panel panel-danger">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= pluralize(@post.errors.count, "error") %> 抱歉!发表失败:</h3>
-    </div>
-    <div class="panel-body">
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<div id="error_expl" class="panel panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= pluralize(@post.errors.count, "error") %>抱歉!发表失败:</h3>
   </div>
+  <div class="panel-body">
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg %></li>
+      <% end %></ul>
+  </div>
+</div>
 <% end %>

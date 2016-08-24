@@ -1,12 +1,13 @@
 
   <div id="post<%= post.id %>">
     <p>
-      <h4 id= 'post-header'><%= post.title %></h4>
+      <h4 id= 'post-header<%= post.id %>'><%= post.title %></h4>
       
-      <div id='post-content'><%= post.text %></div>
+      <div id='post-content<%= post.id %>'><%= post.text %></div>
       
       <td><%= link_to '评论详情',post_path(post) ,class: "btn btn-info" ,id: 'show-comments'%></td>
-    <td><%= link_to '更新', 
+      <!--ujs-->
+    <!-- <td><%= link_to '更新', 
                     edit_post_path(post),
                     remote: true, 
                     class: "btn btn-warning update" ,
@@ -14,6 +15,19 @@
                     'data-text' => post.text, 
                     'data-id' => post.id
                      %>
+     </td>-->
+  
+     <!--json-->
+     <td><%= link_to '更新', 
+                    edit_post_path(post),
+                    remote: true, 
+                    class: "btn btn-warning update" ,
+                    'data-title' => post.title ,
+                    'data-text' => post.text, 
+                    'data-id' => post.id,
+                    data:{type: 'json'}
+                     %>
+                    
      </td>
 
      <td><%= link_to '删除',

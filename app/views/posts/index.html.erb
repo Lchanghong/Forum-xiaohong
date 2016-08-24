@@ -1,76 +1,65 @@
-<h3 style= "color:blue ">帖子列表</h3><br>
-
 <%= link_to t('.发帖'),
             new_post_path,
-            :class => 'btn btn-primary',
+            :class =>
+'btn btn-primary',
             data: {toggle: "modal", target: "#newPostFormModal"} %>
-
 <%= content_for :page_modal do %>
 <!--new post modal-->
 <div class="modal fade bs-example-modal-sm" id="newPostFormModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <%= form_for @post, remote: true, :html => { :class => 'form', id: "newPostForm" } do |f| %>
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="modal-title">
-           <h4 >发表帖子</h4>
-         </span>
-          </div >
-           <psan id="modal-doby">
-           <%= render partial: "input", locals: { f: f } %>
-           </span>
-          <div class="modal-footer">
-            <%= link_to '取消',  '#', class: 'btn btn-default', data: {dismiss: "modal"} %>
-            <%= f.submit '发帖', class: 'btn btn-primary', data:{ :"disable-with" => "请稍等..." } %>
-          </div>
-        </div>
-      <% end %>
+  <div class="modal-dialog">
+    <%= form_for @post, remote: true, :html =>
+    { :class => 'form', id: "newPostForm" } do |f| %>
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title">
+          <h4 >发表帖子</h4>
+        </span>
+      </div >
+      <psan id="modal-doby">
+        <%= render partial: "input", locals: { f: f } %></span>
+      <div class="modal-footer">
+        <%= link_to '取消',  '#', class: 'btn btn-default', data: {dismiss: "modal"} %>
+        <%= f.submit '发帖', class: 'btn btn-primary', data:{ :"disable-with" =>"请稍等..." } %></div>
     </div>
-  </div>
+    <% end %></div>
+</div>
 
 <!--edit post modal-->
 <div class="modal fade" id="editPostFormModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-       <%= form_tag "",method: :put, remote: true,id: "editPostForm", class: "form" do %>
+  <div class="modal-dialog">
+    <%= form_tag "",method: :put, remote: true,data:{type: 'json'}, id: "editPostForm", class: "form" do %>
 
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="modal-title">
-           <h4 >更新帖子</h4>
-           </span>
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title">
+          <h4 >更新帖子</h4>
+        </span>
         <div class="modal-body">
-            
-         <div class="form-group">
-             <h5>标题</h5> 
-             <%= text_field_tag "post[title]",  params[:title], class: "input-block-level",id:"editPostTitle" %>
-            </div>
-            
-            <div class="form-group">
-              <h5>内容</h5> 
-              <%= text_area_tag "post[text]", params[:text], :rows=>"7", class: "input-block-level",id:"editPostText" %>
-            </div>
-        <div>
-          <div class="modal-footer">
-            <%= link_to '取消',  '#', class: 'btn btn-default', data: {dismiss: "modal"} %>
-            <%=submit_tag '更新发帖', class: 'btn btn-primary',id:"editPost", data:{ :"disable-with" => "请稍等..." } %>
+
+          <div class="form-group">
+            <h5>标题</h5>
+            <%= text_field_tag "post[title]",  params[:title], class: "input-block-level",id:"editPostTitle" %></div>
+
+          <div class="form-group">
+            <h5>内容</h5>
+            <%= text_area_tag "post[text]", params[:text], :rows=>"7", class: "input-block-level",id:"editPostText" %></div>
+          <div>
+            <div class="modal-footer">
+              <%= link_to '取消',  '#', class: 'btn btn-default', data: {dismiss: "modal"} %>
+              <%=submit_tag '更新发帖', class: 'btn btn-primary',id:"editPost", data:{ :"disable-with" =>"请稍等..." } %></div>
           </div>
-        </div>
+          <% end %></div>
+      </div>
+    
       <% end %>
-    </div>
-  </div>
 
-<% end %>
+      <!--显示内容-->
+      <tdoby id="posts-list">
+        <%= render @posts %></tdoby>
 
-
-<!--显示内容-->
- <tdoby id="posts-list">
- 	<%= render @posts %>
-</tdoby>
-
-
-<%= content_for :page_javascript do %>
- <%= javascript_include_tag "posts" %>
-  <script>
+      <%= content_for :page_javascript do %>      
+      <%= javascript_include_tag "posts" %>      
+      <script>
     $('#newProductFormModal').modal({
       show: false,
     })
@@ -80,9 +69,7 @@
 
     
   </script>
-<% end %>
-
-
+      <% end %>      
 
 
 <!--   

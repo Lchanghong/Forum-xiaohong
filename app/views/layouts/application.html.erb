@@ -2,106 +2,123 @@
 <html>
 <head>
   <title>菜鸟论坛</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
- <%= csrf_meta_tags %>
-</head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' =>
+  true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' =>
+  true %>
+  <%= csrf_meta_tags %></head>
 <body>
-	<!-- 顶部栏-->
-<div class="main">
+  <!-- 顶部栏-->
+  <div class="main">
 
-  <div class="header">
-    <div class="header_resize">
-      <div class="logo"><h1>菜鸟论坛</h1></div>
-      <div class="clr"></div>
-      <div class="menu_nav">
-      	<!-- 登录模块-->
-        <div class="login">
-        <div id = 'layoulogin'>
-        <%- if session[:user_id] -%>
-        <%@user = User.find_by(id: session[:user_id]) %>
-        <span>欢迎回来~</span>
-       <span class= 'user-name'>
-          <%= @user.name %>
-        </span>
-        <span id = 'sign'>
-         <%= link_to '退出', session_path(session),
+    <div class="header">
+      <div class="header_resize">
+        <div class="logo">
+          <h1>菜鸟论坛</h1>
+        </div>
+        <div class="clr"></div>
+        <div class="menu_nav">
+          <!-- 登录模块-->
+          <div class="login">
+            <div id = 'layoulogin'>
+              <%- if session[:user_id] -%>
+              <%@user = User.find_by(id: session[:user_id]) %>
+              <span>欢迎回来~</span>
+              <span class= 'user-name'>
+                <%= @user.name %></span>
+              <span id = 'sign'>
+                <%= link_to '退出', session_path(session),
                     method: :delete, data: { confirm: '确定退出当前账号?' } ,id:'sign'%>
-          <% else %>
-           <%= link_to '登录', new_session_path ,id:'sign'%>
-         
-          <% end %>
-          
-       </div>
-        </div>
-        <ul>
-          <li ><%= link_to '首页', controller: 'welcome'%></li>
-          <li><%= link_to '论坛', posts_path %></li>
-          <li><%= link_to '用户中心',sessions_show_path %></li>
-          <li><a href="#">关于我们</a></li>
-        </ul>
-      </div>
-      <div class="clr"></div>
-    </div>
-  </div>
-  <!-- 内容栏-->
-         
-  <div class="content">
-    <div class="content_resize">
-      <div class="mainbar">
-        <div class="article">
-          <%= yield %>
-        </div>
-        
-      </div>
-      <!-- 侧边栏-->
-      <div class="sidebar">
-        <div class="gadget">
-          <h2 class="star"><span>web</span> 资源站</h2><div class="clr"></div>
-          <ul class="sb_menu">
-            <li><a href="http://www.runoob.com/">web基础</a></li>
-            
-            <li><a href="http://api.rubyonrails.org/">ruby on rails api文档</a></li>
-            <li><a href="http://guides.ruby-china.org/getting_started.html#%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0">rails入门指南</a></li>
-            <li><a href="https://ruby-china.org/topics?page=2">ruby中文社区</a></li>
-            <li><a href="https://rubygems.org/">rubygem</a></li>
-          </ul>
-        </div>
-        <!-- 下侧边栏-->
-        <div class="gadget">
-          <h2 class="star">
-          	<span>站点访问量:
-              <%= $visitor%>
-          </span>
-          </h2>
-            <div class="clr">
-         </div>
-          
-        </div>
-      </div>
-      <div class="clr"></div>
-    </div>
-  </div>
+                <% else %>
+                <%= link_to '登录', new_session_path ,id:'sign'%>
 
-     
+                <% end %></div>
+            </div>
+            <ul>
+              <li >
+                <%= link_to '首页', controller: 'welcome'%></li>
+              <li>
+                <%= link_to '论坛', posts_path %></li>
+              <li>
+                <%= link_to '用户中心',sessions_show_path %></li>
+              <li>
+                <a href="#">关于我们</a>
+              </li>
+            </ul>
+          </div>
+          <div class="clr"></div>
+        </div>
+      </div>
+      <!-- 内容栏-->
+
+      <div class="content">
+        <div class="content_resize">
+          <div class="mainbar">
+            <div class="article">
+              <%= yield %></div>
+
+          </div>
+          <!-- 侧边栏-->
+          <div class="sidebar">
+            <div class="gadget">
+              <h2 class="star">
+                <span>web</span>
+                资源站
+              </h2>
+              <div class="clr"></div>
+              <ul class="sb_menu">
+                <li>
+                  <a href="http://www.runoob.com/">web基础</a>
+                </li>
+
+                <li>
+                  <a href="http://api.rubyonrails.org/">ruby on rails api文档</a>
+                </li>
+                <li>
+                  <a href="http://guides.ruby-china.org/getting_started.html#%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0">rails入门指南</a>
+                </li>
+                <li>
+                  <a href="https://ruby-china.org/topics?page=2">ruby中文社区</a>
+                </li>
+                <li>
+                  <a href="https://rubygems.org/">rubygem</a>
+                </li>
+              </ul>
+            </div>
+            <!-- 下侧边栏-->
+            <div class="gadget">
+              <h2 class="star">
+                <span>
+                  站点访问量:
+                  <%= $visitor%></span>
+              </h2>
+              <div class="clr"></div>
+
+            </div>
+          </div>
+          <div class="clr"></div>
+        </div>
+      </div>
+
       <div class="clr"></div>
     </div>
-    </div>
-<!-- 底部模块-->
+  </div>
+  <!-- 底部模块-->
   <div class="footer">
     <div class="footer_resize">
-      <p class="lf"> &copy; 2016 <a href="https://lp-bra.taobao.com/?spm=2013.1.1000126.3.FZWM9e">流氓皮</a>版权所有
-      	<span>友情链接: 
-      		<a href="https://gorrenno.tmall.com/shop/view_shop.htm?spm=a220o.1000855.w5001-13818423597.12.NDbyHB&mytmenu=mdianpu&utkn=g%2Cxdumdjwfwxdozpncwxva1464776983649&user_number_id=2843196042&scm=1028.1.1.20001&scene=taobao_shop"  target="_blank">歌力诺天猫旗舰店
-      		</a>
-      	</span></p>
+      <p class="lf">
+        &copy; 2016
+        <a href="https://lp-bra.taobao.com/?spm=2013.1.1000126.3.FZWM9e">流氓皮</a>
+        版权所有
+        <span>
+          友情链接:
+          <a href="https://gorrenno.tmall.com/shop/view_shop.htm?spm=a220o.1000855.w5001-13818423597.12.NDbyHB&mytmenu=mdianpu&utkn=g%2Cxdumdjwfwxdozpncwxva1464776983649&user_number_id=2843196042&scm=1028.1.1.20001&scene=taobao_shop"  target="_blank">歌力诺天猫旗舰店</a>
+        </span>
+      </p>
       <div class="clr"></div>
     </div>
   </div>
 </div>
 <%= yield(:page_modal) if content_for?(:page_modal) %>
-<%= yield(:page_javascript) if content_for?(:page_javascript) %>
-</body>
+<%= yield(:page_javascript) if content_for?(:page_javascript) %></body>
 </html>
-

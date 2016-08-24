@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 	end
 
 	def index
-		$visitor +=1
+		
 		 @posts = Post.order('id DESC')  #倒序
 	
 		 @post = Post.new
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
 	def edit
 	   respond_to do |format|
          # format.html
-         # format.json { render json: @post, status: :ok, location: @post }
+         format.json { render json: @post, status: :ok, location: @post }
          format.js 
        end
 	end
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
 	  	@post.update(post_params)
 	  	
         # format.html
-        # format.json { render json: @post, status: :ok, location: @post }
+        format.json { render json: @post, status: :created, location: @post }
         format.js
      
       end

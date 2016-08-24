@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_post ,only: [:create, :destroy]
 
 	def create
-      sleep 1  #模拟网络延时1秒
+      # sleep 1  #模拟网络延时1秒
     
       @comment = @post.comments.create(comment_params)
       @comment.user_id = session[:user_id]
@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
           @comment.save
           # format.html { render :acomment, status: :created , location: @post, layout: false }
           format.js
+          format.json {render :show,status: :created,location: @comment}
       end
       # redirect_to post_path(@post)
   end
